@@ -1,0 +1,11 @@
+Env properties file [file:${user.home}/springboot-mongo/env.properties]
+====================
+
+On your home directory create a directory with name as "springboot-mongo" and put env properties there
+
+env.properties content 
+=======================
+
+mongo.db={springboot-mongo}
+mongo.host={localhost}
+mongo.port={27017}
