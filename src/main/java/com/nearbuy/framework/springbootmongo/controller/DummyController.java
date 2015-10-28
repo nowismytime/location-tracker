@@ -22,6 +22,7 @@ public class DummyController {
     private DemoDao demoDao;
     @RequestMapping(value = "/framework/hello")
     @ResponseBody
+//    Add apiResponse as output
     public String getDummyVal(){
         LOGGER.info("Hello! From Spring boot and mongo");
         DemoModel model = new DemoModel();

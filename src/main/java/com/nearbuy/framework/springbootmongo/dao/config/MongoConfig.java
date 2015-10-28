@@ -31,7 +31,6 @@ import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
  * Created by tushar on 19/08/15.
  */
 @Configuration
-@ComponentScan(basePackages = "com.nearbuy.platform.deal.dao")
 public class MongoConfig {
 
     @Autowired
