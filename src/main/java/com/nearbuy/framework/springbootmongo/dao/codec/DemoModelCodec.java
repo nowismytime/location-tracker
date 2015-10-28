@@ -4,7 +4,6 @@ import org.bson.Document;
 import org.springframework.stereotype.Component;
 
 import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
-import com.nearbuy.framework.springbootmongo.util.AppUtil;
 
 /**
  * Created by tushar on 27/08/15.
@@ -24,8 +23,10 @@ public class DemoModelCodec extends AppCodec<DemoModel> {
 
     @Override
     protected Document _encode(DemoModel value) {
-        String json = AppUtil.getJson(value);
-        return Document.parse(json);
+    	Document doc = new Document(); 
+    	doc.put("demo", value.getDemo()); 
+    	return doc;
+  
     }
 
 }

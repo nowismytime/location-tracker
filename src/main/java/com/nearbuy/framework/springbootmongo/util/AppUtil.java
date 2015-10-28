@@ -8,7 +8,12 @@ import com.google.gson.Gson;
 
 public class AppUtil {
 
+	public static final Gson gson;
 	
+	static{
+		
+		gson = new Gson();
+	}
 	public static <T> T getFromJson(String json, Class<T> class1) {
 		return new Gson().fromJson(json, class1);
 	}

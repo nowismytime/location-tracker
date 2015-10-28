@@ -25,14 +25,5 @@ public class DBUtil {
         dc.encode(writer, doc, encoderContext);
     }
     
-    public static Document getDocument(Object obj) {
-        String json = AppUtil.getJson(obj);
-        return Document.parse(json);
-    }
-    
-    // FIX::ME Need to explore another solution
-    public static Object getDbObject(Object obj) {
-        String json = AppUtil.getJson(obj);
-        return JSON.parse(json);
-    }
+
 }

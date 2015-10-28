@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import com.nearbuy.framework.springbootmongo.dao.codec.DemoModelCodec;
 import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
 
 @Component
-public class DemoDao extends BaseDao<DemoModel>{
+public class DemoDao {
 
 	@Autowired
 	private MongoCollection collection;
 
 	@Autowired
 	private DemoModelCodec demoModelcodec;
-	
-	@Override
+
 	   public String insertDemo(DemoModel model) {
 	        Document obj = demoModelcodec.getDoc(model);
 	        collection.insertOne(obj);
@@ -28,5 +28,10 @@ public class DemoDao extends BaseDao<DemoModel>{
 	    }
 
 
-	
+	public DemoModel getDemoModel(String id)
+	{
+	      return (DemoModel)collection.withDocumentClass(DemoModel.class).find(Filters.eq("_id", new ObjectId(id))).first();
+
+		
+	}
 }
