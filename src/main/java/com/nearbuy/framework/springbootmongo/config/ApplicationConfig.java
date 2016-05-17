@@ -17,7 +17,7 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@PropertySource(ignoreResourceNotFound = true, value ={"file:${user.home}/springboot-mongo/env.properties", "classpath:env.properties"})
+@PropertySource(ignoreResourceNotFound = true, value ={"classpath:env.properties"})
 public class ApplicationConfig {
 
     @Bean(name="restOperations")
