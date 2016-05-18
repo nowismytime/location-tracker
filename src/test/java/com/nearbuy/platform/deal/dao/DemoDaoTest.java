@@ -9,7 +9,7 @@
 //import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //
 //import com.nearbuy.framework.springbootmongo.dao.DemoDao;
-//import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
+//import DemoModel;
 //import com.nearbuy.platform.deal.config.ApplicationConfigTest;
 //
 //

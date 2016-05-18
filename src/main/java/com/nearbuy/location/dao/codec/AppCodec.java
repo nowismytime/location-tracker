@@ -1,14 +1,13 @@
-package com.nearbuy.framework.springbootmongo.dao.codec;
+package com.nearbuy.location.dao.codec;
 
 
+import com.nearbuy.location.util.DBUtil;
 import org.bson.BsonReader;
 import org.bson.BsonWriter;
 import org.bson.Document;
 import org.bson.codecs.Codec;
 import org.bson.codecs.DecoderContext;
 import org.bson.codecs.EncoderContext;
-
-import com.nearbuy.framework.springbootmongo.util.DBUtil;
 
 import java.util.Iterator;
 

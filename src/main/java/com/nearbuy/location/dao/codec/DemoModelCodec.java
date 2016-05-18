@@ -1,9 +1,9 @@
-package com.nearbuy.framework.springbootmongo.dao.codec;
+package com.nearbuy.location.dao.codec;
 
 import org.bson.Document;
 import org.springframework.stereotype.Component;
 
-import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
+import com.nearbuy.location.dao.model.DemoModel;
 
 /**
  * Created by tushar on 27/08/15.

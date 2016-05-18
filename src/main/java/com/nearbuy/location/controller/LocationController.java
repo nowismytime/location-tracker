@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.controller;
+package com.nearbuy.location.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class LocationController {
     @RequestMapping(value = "/location", method = RequestMethod.POST)
     @ResponseBody
     public void postLocation(double lat, double lng, boolean isBackground,
-                               String customerId, @RequestParam(required = false) String metaInfo,
+                               @RequestParam(required = false) String customerId, @RequestParam(required = false) String metaInfo,
                                @RequestParam(required = false) String actionType){
     }
 

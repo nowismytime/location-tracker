@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.util;
+package com.nearbuy.location.util;
 
 import java.lang.reflect.Type;
 

@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.dao.model;
+package com.nearbuy.location.dao.model;
 
 import org.bson.types.ObjectId;
 

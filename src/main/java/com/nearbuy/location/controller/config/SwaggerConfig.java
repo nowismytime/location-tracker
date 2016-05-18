@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.controller.config;
+package com.nearbuy.location.controller.config;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;

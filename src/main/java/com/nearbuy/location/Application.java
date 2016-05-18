@@ -1,12 +1,10 @@
-package com.nearbuy.framework.springbootmongo;
+package com.nearbuy.location;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
-
-import java.util.Arrays;
 
 /**
  * Created by tushar on 26/08/15.

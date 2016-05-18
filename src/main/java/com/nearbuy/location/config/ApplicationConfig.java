@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.config;
+package com.nearbuy.location.config;
 
 
 import java.io.IOException;

@@ -7,8 +7,8 @@
 //
 //import com.mongodb.client.MongoCollection;
 //import com.mongodb.client.model.Filters;
-//import com.nearbuy.framework.springbootmongo.dao.codec.DemoModelCodec;
-//import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
+//import DemoModelCodec;
+//import DemoModel;
 //
 //@Component
 //public class DemoDao {

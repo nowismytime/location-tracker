@@ -23,9 +23,9 @@
 //import com.mongodb.MongoClient;
 //import com.mongodb.client.MongoCollection;
 //import com.mongodb.client.MongoDatabase;
-//import com.nearbuy.framework.springbootmongo.dao.codec.DemoModelCodec;
-//import com.nearbuy.framework.springbootmongo.dao.codec.DocumentCodecProvider;
-//import com.nearbuy.framework.springbootmongo.dao.model.DemoModel;
+//import DemoModelCodec;
+//import DocumentCodecProvider;
+//import DemoModel;
 //
 ///**
 // * Created by tushar on 19/08/15.

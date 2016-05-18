@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.util;
+package com.nearbuy.location.util;
 
 import org.bson.BsonReader;
 import org.bson.BsonWriter;

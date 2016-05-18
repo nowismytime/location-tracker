@@ -1,4 +1,4 @@
-package com.nearbuy.framework.springbootmongo.dao.codec;
+package com.nearbuy.location.dao.codec;
 
 import org.bson.codecs.Codec;
 import org.bson.codecs.configuration.CodecProvider;
