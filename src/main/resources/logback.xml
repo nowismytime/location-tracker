@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!--included-->
-    <property name="PROJECT_ID" value="redwing-email-service"/>
+    <property name="PROJECT_ID" value="location-tracking-service"/>
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/Users/tushar/logging.json</File>
+        <File>${LOG_DIR:-logs}/${PROJECT_ID}.json</File>
 
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
             <customFields>{"application":"locationTracker"}</customFields>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/Users/tushar/logging.%d{yyyy-MM-dd}.json</fileNamePattern>
+            <fileNamePattern>${LOG_DIR:-logs}/${PROJECT_ID}.%d{yyyy-MM-dd}.%i.json</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
     </appender>
