@@ -19,6 +19,12 @@ public class LocationController {
 //    @Autowired
 //    private DemoDao demoDao;
 
+    @RequestMapping(value = "/ping", method = RequestMethod.GET)
+    @ResponseBody
+    public String postLocation(){
+        return "pong";
+    }
+
     @RequestMapping(value = "/location", method = RequestMethod.POST)
     @ResponseBody
     public void postLocation(double lat, double lng, boolean isBackground,
