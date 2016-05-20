@@ -25,7 +25,7 @@
 //import com.mongodb.client.MongoDatabase;
 //import DemoModelCodec;
 //import DocumentCodecProvider;
-//import DemoModel;
+//import UserLocation;
 //
 ///**
 // * Created by tushar on 19/08/15.
@@ -63,7 +63,7 @@
 //    public CodecProvider getProvider() {
 //        Map<Class,Codec> map = new HashMap();
 //        map.put(Document.class, new DocumentCodec());
-//        map.put(DemoModel.class, demoModelcodec);
+//        map.put(UserLocation.class, demoModelcodec);
 //        return new DocumentCodecProvider(map);
 //    }
 //

@@ -3,7 +3,7 @@ package com.nearbuy.location.util;
 import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
-
+import com.nearbuy.location.dao.model.UserLocation;
 
 
 public class AppUtil {
@@ -31,7 +31,11 @@ public class AppUtil {
         return new Gson().fromJson(getJson(json), type);
     }
 
-	public static String getJson(Object user) {
-		return new Gson().toJson(user);
+	public static String getJson(Object source) {
+		return new Gson().toJson(source);
+	}
+
+	public static byte[] getJsonBytes(Object source) {
+		return getJson(source).getBytes();
 	}
 }

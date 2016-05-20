@@ -33,7 +33,7 @@ import com.fasterxml.classmate.TypeResolver;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.nearbuy.framework.springbootmongo.controller"})
+@ComponentScan(basePackages = {"com.nearbuy.location"})
 public class SwaggerConfig {
 
     @Bean

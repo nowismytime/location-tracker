@@ -9,6 +9,7 @@
 	<properties>
 		<mongo.driver.version>3.0.2</mongo.driver.version>
 		<swagger.version>2.2.2</swagger.version>
+		<es.version>2.3.2</es.version>
 		<!--<swagger.version>1.0.2</swagger.version>-->
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -106,9 +107,14 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!--Elastic java client-->
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>${es.version}</version>
+		</dependency>
 	</dependencies>
 
-	<!--Abhishek Bhagia (abhishek.bhagia@nearbuy.com)-->
 	<build>
 		<plugins>
 			<plugin>
