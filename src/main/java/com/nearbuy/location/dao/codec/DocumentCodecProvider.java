@@ -1,5 +1,7 @@
 package com.nearbuy.location.dao.codec;
 
+import com.mongodb.client.model.geojson.Polygon;
+import com.mongodb.client.model.geojson.codecs.PolygonCodec;
 import org.bson.codecs.Codec;
 import org.bson.codecs.configuration.CodecProvider;
 import org.bson.codecs.configuration.CodecRegistry;

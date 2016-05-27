@@ -9,7 +9,7 @@
 //import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //
 //import com.mongodb.client.MongoCollection;
-//import com.nearbuy.platform.deal.config.ApplicationConfigTest;
+//import ApplicationConfigTest;
 //
 ///**
 // * Created by tushar on 19/08/15.

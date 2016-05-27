@@ -7,10 +7,9 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<mongo.driver.version>3.0.2</mongo.driver.version>
+		<mongo.driver.version>3.2.2</mongo.driver.version>
 		<swagger.version>2.2.2</swagger.version>
-		<es.version>2.3.2</es.version>
-		<!--<swagger.version>1.0.2</swagger.version>-->
+		<!--<es.version>2.3.2</es.version>-->
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-boot-version>1.2.5.RELEASE</spring-boot-version>
@@ -25,6 +24,17 @@
 	</parent>
 
 	<dependencies>
+		<!-- http://mvnrepository.com/artifact/org.locationtech.spatial4j/spatial4j -->
+		<!--<dependency>-->
+			<!--<groupId>org.locationtech.spatial4j</groupId>-->
+			<!--<artifactId>spatial4j</artifactId>-->
+			<!--<version>0.6</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.lucene</groupId>-->
+			<!--<artifactId>lucene-spatial</artifactId>-->
+			<!--<version>5.2.1</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -84,13 +94,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.0.2</version>
 		</dependency>
-		<!-- MONGO DRIVER -->
+		 <!--MONGO DRIVER-->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>${mongo.driver.version}</version>
 		</dependency>
-		<!-- GSON -->
+		 <!--GSON-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -108,11 +118,11 @@
 			<scope>provided</scope>
 		</dependency>
 		<!--Elastic java client-->
-		<dependency>
-			<groupId>org.elasticsearch</groupId>
-			<artifactId>elasticsearch</artifactId>
-			<version>${es.version}</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.elasticsearch</groupId>-->
+			<!--<artifactId>elasticsearch</artifactId>-->
+			<!--<version>${es.version}</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>

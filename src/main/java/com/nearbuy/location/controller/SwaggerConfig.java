@@ -1,4 +1,4 @@
-package com.nearbuy.location.controller.config;
+package com.nearbuy.location.controller;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
@@ -33,7 +33,7 @@ import com.fasterxml.classmate.TypeResolver;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.nearbuy.location"})
+@ComponentScan(basePackages = {"com.nearbuy.location.controller"})
 public class SwaggerConfig {
 
     @Bean

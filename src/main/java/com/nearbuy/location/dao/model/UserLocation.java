@@ -1,27 +1,38 @@
 package com.nearbuy.location.dao.model;
 
+import com.nearbuy.location.util.AppUtil;
+
+import java.util.List;
 import java.util.Map;
 
 public class UserLocation {
 
-	/**
-	 * longitude,latitude
-	 */
-	Double [] location;
+	GeoJson<List<Double>> location;
 	String customerId;
 	Boolean isUsingApp;
 	String actionType;
-	Map metaInfo;
+	Map<String, Object> metaInfo;
+	Long time;
 
 	public UserLocation() {
 	}
 
+	public Long getTime() {
+		return time;
+	}
+
+	public void setTime(Long time) {
+		this.time = time;
+	}
+
 	public UserLocation(Double[] location, String customerId, Boolean isUsingApp, String actionType, Map metaInfo) {
-		this.location = location;
+		this.location = GeoJsonFactory.getPoint(location);
 		this.customerId = customerId;
 		this.isUsingApp = isUsingApp;
 		this.actionType = actionType;
 		this.metaInfo = metaInfo;
+		time = AppUtil.currentTime();
+
 	}
 
 	public String getActionType() {
@@ -48,11 +59,11 @@ public class UserLocation {
 		isUsingApp = usingApp;
 	}
 
-	public Double[] getLocation() {
+	public GeoJson<List<Double>> getLocation() {
 		return location;
 	}
 
-	public void setLocation(Double[] location) {
+	public void setLocation(GeoJson<List<Double>> location) {
 		this.location = location;
 	}
 

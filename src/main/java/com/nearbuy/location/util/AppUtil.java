@@ -11,7 +11,6 @@ public class AppUtil {
 	public static final Gson gson;
 	
 	static{
-		
 		gson = new Gson();
 	}
 	public static <T> T getFromJson(String json, Class<T> class1) {
@@ -37,5 +36,9 @@ public class AppUtil {
 
 	public static byte[] getJsonBytes(Object source) {
 		return getJson(source).getBytes();
+	}
+
+	public static Long currentTime() {
+		return System.currentTimeMillis();
 	}
 }
