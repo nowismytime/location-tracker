@@ -19,6 +19,7 @@ public class HotspotCodec extends AppCodec<Hotspot> {
     private static final String TYPE = "type";
     private static final String COORDINATES = "coordinates";
     private static final String DISTANCE = "distance";
+    private static final String NAME = "name";
 
     @Override
     protected Hotspot _decode(Document doc) {
@@ -38,6 +39,7 @@ public class HotspotCodec extends AppCodec<Hotspot> {
         Document doc = new Document();
         doc.put("_id", value.get_id());
         doc.put(LOCATION, getLocationDoc(value.getLocation()));
+        doc.put(NAME, value.getName());
         return doc;
     }
 
