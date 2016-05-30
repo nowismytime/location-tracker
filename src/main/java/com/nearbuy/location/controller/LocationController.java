@@ -44,7 +44,7 @@ public class LocationController {
     public String postLocation(double lat, double lng, boolean isBackground,
                                @RequestParam(required = false) String customerId, @RequestParam(required = false) String metaInfo,
                                @RequestParam(required = false) String actionType){
-
+        String retVal = null;
         Map _metaInfo = AppUtil.parseJson(metaInfo, Map.class);
         UserLocation newLocation = new UserLocation(new Double[]{lng, lat}, customerId, !isBackground, actionType, _metaInfo);
         if(customerId!=null){
@@ -53,16 +53,19 @@ public class LocationController {
             if (hotspot != null) {
                 if (hotspot.getDistance().equals(ZERO) && ( lastLocation==null || !GeoUtil.isInside(lastLocation, hotspot.getLocation()))) {
 //                    User has entered hotspot here
-                    return "you have entered hotspot with id : " + hotspot.get_id();
+                    retVal =  "you have entered hotspot with id : " + hotspot.get_id();
                 }
                 if (!hotspot.getDistance().equals(ZERO) && (lastLocation!=null && GeoUtil.isInside(lastLocation, hotspot.getLocation()))) {
 //                    user has left hotspot
-                    return "you have left hotspot with id : " + hotspot.get_id();
+                    retVal =  "you have left hotspot with id : " + hotspot.get_id();
                 }
             }
         }
         userLocationDao.add(newLocation);
-        return "no event";
+        if(retVal==null) {
+            retVal = "no event";
+        }
+        return retVal;
     }
 
     @RequestMapping(value = "/hotspot", method = RequestMethod.POST)

@@ -40,7 +40,7 @@ public class UserLocationDao {
         collection.withDocumentClass(UserLocation.class).insertOne(userLocation);
     }
 
-    public GeoJson<List<Double>> getLastLocation(String customerId){
+    public GeoJson<List<Double>>    getLastLocation(String customerId){
         UserLocation loc = (UserLocation) collection.withDocumentClass(UserLocation.class).find(Filters.eq(CUSTOMER_ID, customerId))
                 .sort(Sorts.descending(TIME)).projection(Projections.include(LOCATION)).first();
         return loc==null?null:loc.getLocation();
