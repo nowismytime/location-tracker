@@ -67,10 +67,11 @@ public class LocationController {
 
     @RequestMapping(value = "/hotspot", method = RequestMethod.POST)
     @ResponseBody
-    public Long postHotspot(String name, Double[][] coordinates) {
+    public Long postHotspot(String name, String coordinates) {
+        Double[][] coords = AppUtil.parseJson(coordinates, Double[][].class);
         Hotspot hotspot = new Hotspot();
         hotspot.setName(name);
-        hotspot.setLocation(GeoJsonFactory.getPolygon(coordinates));
+        hotspot.setLocation(GeoJsonFactory.getPolygon(coords));
         return hotspotDao.insert(hotspot);
     }
 
