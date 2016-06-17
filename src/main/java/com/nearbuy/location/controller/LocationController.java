@@ -1,13 +1,13 @@
 package com.nearbuy.location.controller;
 
-import com.nearbuy.location.dao.HotspotDao;
-import com.nearbuy.location.dao.UserLocationDao;
-import com.nearbuy.location.dao.model.GeoJson;
-import com.nearbuy.location.dao.model.GeoJsonFactory;
-import com.nearbuy.location.dao.model.Hotspot;
-import com.nearbuy.location.dao.model.UserLocation;
-import com.nearbuy.location.util.AppUtil;
-import com.nearbuy.location.util.GeoUtil;
+import io.swagger.models.Response;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+
+import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.nearbuy.location.dao.HotspotDao;
+import com.nearbuy.location.dao.UserLocationDao;
+import com.nearbuy.location.dao.model.GeoJson;
+import com.nearbuy.location.dao.model.GeoJsonFactory;
+import com.nearbuy.location.dao.model.Hotspot;
+import com.nearbuy.location.dao.model.UserLocation;
+import com.nearbuy.location.service.UserLocationService;
+import com.nearbuy.location.util.AppUtil;
+import com.nearbuy.location.util.GeoUtil;
 
 /**
  * Created by tushar on 20/08/15.
@@ -29,9 +39,11 @@ public class LocationController {
     private static final Double ZERO = 0.0;
 
     @Autowired
-    private UserLocationDao userLocationDao;
+    public UserLocationDao userLocationDao;
     @Autowired
-    private HotspotDao hotspotDao;
+    public HotspotDao hotspotDao;
+    @Autowired
+    public UserLocationService userLocationService;
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     @ResponseBody
@@ -76,6 +88,39 @@ public class LocationController {
         hotspot.setName(name);
         hotspot.setLocation(GeoJsonFactory.getPolygon(coords));
         return hotspotDao.insert(hotspot);
+    }
+    
+    /*@RequestMapping(value = "/location", method = RequestMethod.GET)
+    public String findAllUsers(@RequestParam(value="lat")double lat, @RequestParam(value="lng")double lng, @RequestParam(value="dist")double x){
+    	double change = x/111000;
+    	double maxLat = lat + change;
+    	double minLat = lat - change;
+    	double unitLong = (Math.cos(lat))*111000;
+    	double minLong = lng - x/unitLong;
+    	double maxLong = lng + x/unitLong;
+    	Long time = System.currentTimeMillis() - 15*60*1000;
+    	Iterable<UserLocation> users = userLocationService.findUsers(time, Math.min(minLong, maxLong), minLat, Math.max(minLong, maxLong), maxLat);
+    	return AppUtil.getJsonArray(users) ;
+    }*/
+    
+    @RequestMapping(value = "/location", method = RequestMethod.GET)
+    @ResponseBody
+    public String findUsers(@RequestParam(value="lat") double lat, @RequestParam(value="lng")  double lng,@RequestParam(value="dist")  double x){
+    	double change = x/111000;
+    	double maxLat = lat + change;
+    	double minLat = lat - change;
+    	double unitLong = (Math.cos(lat))*111000;
+    	double minLong = lng - x/unitLong;
+    	double maxLong = lng + x/unitLong;
+    	/*System.out.println(maxLat);
+    	System.out.println(minLat);
+    	System.out.println(maxLong);
+    	System.out.println(minLong);*/
+    	Long time = System.currentTimeMillis() - 15*60*1000;
+    	ArrayList<UserLocation> users = userLocationService.findUsersBox(time, Math.min(minLong, maxLong), minLat, Math.max(minLong, maxLong), maxLat);
+    	Gson gson = new Gson();
+    	String json1 = gson.toJson(users);
+    	return json1;
     }
 
 }
