@@ -5,6 +5,9 @@ import com.nearbuy.location.util.AppUtil;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "userLocation")
 public class UserLocation {
 
 	GeoJson<List<Double>> location;
