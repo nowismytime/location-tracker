@@ -30,6 +30,7 @@ public class UserLocationService {
 		Long time = System.currentTimeMillis() - duration * 1000;
 		List<UserLocation> users = userLocationRepository.find(time, minLong,
 				minLat, maxLong, maxLat);
+
 		return users;
 	}
 }
