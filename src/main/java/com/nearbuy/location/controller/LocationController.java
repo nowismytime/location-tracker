@@ -1,13 +1,8 @@
 package com.nearbuy.location.controller;
 
-import io.swagger.models.Response;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
-import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.nearbuy.location.dao.HotspotDao;
 import com.nearbuy.location.dao.UserLocationDao;
 import com.nearbuy.location.dao.model.GeoJson;
@@ -90,36 +84,14 @@ public class LocationController {
         return hotspotDao.insert(hotspot);
     }
     
-    /*@RequestMapping(value = "/location", method = RequestMethod.GET)
-    public String findAllUsers(@RequestParam(value="lat")double lat, @RequestParam(value="lng")double lng, @RequestParam(value="dist")double x){
-    	double change = x/111000;
-    	double maxLat = lat + change;
-    	double minLat = lat - change;
-    	double unitLong = (Math.cos(lat))*111000;
-    	double minLong = lng - x/unitLong;
-    	double maxLong = lng + x/unitLong;
-    	Long time = System.currentTimeMillis() - 15*60*1000;
-    	Iterable<UserLocation> users = userLocationService.findUsers(time, Math.min(minLong, maxLong), minLat, Math.max(minLong, maxLong), maxLat);
-    	return AppUtil.getJsonArray(users) ;
-    }*/
-    
+    // get request to return all users within a square block around a point within specified duration(seconds) and specified distance(meters).
+    // added by: Rajat Tulasyan
     @RequestMapping(value = "/location", method = RequestMethod.GET)
     @ResponseBody
-    public String findUsers(@RequestParam(value="lat") double lat, @RequestParam(value="lng")  double lng,@RequestParam(value="dist")  double x){
-    	double change = x/111000;
-    	double maxLat = lat + change;
-    	double minLat = lat - change;
-    	double unitLong = (Math.cos(lat))*111000;
-    	double minLong = lng - x/unitLong;
-    	double maxLong = lng + x/unitLong;
-    	/*System.out.println(maxLat);
-    	System.out.println(minLat);
-    	System.out.println(maxLong);
-    	System.out.println(minLong);*/
-    	Long time = System.currentTimeMillis() - 15*60*1000;
-    	ArrayList<UserLocation> users = userLocationService.findUsersBox(time, Math.min(minLong, maxLong), minLat, Math.max(minLong, maxLong), maxLat);
+    public String findUsers(@RequestParam(value="duration") Long time, @RequestParam(value="lat") double lat, @RequestParam(value="lng")  double lng,@RequestParam(value="dist")  double x){
+    	List<UserLocation> allUsers = userLocationService.findUsers(time, lat, lng, x);
     	Gson gson = new Gson();
-    	String json1 = gson.toJson(users);
+    	String json1 = gson.toJson(allUsers);
     	return json1;
     }
 
